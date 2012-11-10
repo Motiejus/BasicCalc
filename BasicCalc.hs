@@ -119,15 +119,23 @@ main =
 
      bce <- xmlGetWidget xml castToButton "bCE"
      onClicked bce $ do
-        setDisplay sr ""
+       setDisplay sr ""
 
 -- CLR clear button
 
      bclr <- xmlGetWidget xml castToButton "bCLR"
      onClicked bclr $ do
-        setDisplay sr ""
-        setStack sr []
-        --writeIORef sr (s { stack = []})
+       setDisplay sr ""
+       setStack sr []
+
+-- +/- button, change sign of the number on top of the stack
+     bChangeSign <- xmlGetWidget xml castToButton "bChangeSign"
+     onClicked bChangeSign $ do
+       s <- readIORef sr
+       s' <- (case stack s of
+         (x:xs) -> return (0-x:xs)
+         [] -> return [])
+       setStack sr s'
 
 -- Start up the GUI
      
