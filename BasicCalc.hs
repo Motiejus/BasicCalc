@@ -165,6 +165,16 @@ main =
             xs -> return xs)
        setStack sr st'
 
+-- Help->About
+
+     mAbout <- xmlGetWidget xml castToMenuItem "menuAbout"
+     -- make the menu item show the About Dialog (defined in the Glade file)
+     on mAbout menuItemActivate $ do
+         aboutDialog <- xmlGetWidget xml castToDialog "aboutdialog"
+         set aboutDialog [ widgetVisible := True ]
+         dialogRun aboutDialog
+         set aboutDialog [ widgetVisible := False ]
+
 -- Start up the GUI
 
      widgetShowAll mainWindow
