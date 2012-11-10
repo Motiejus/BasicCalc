@@ -115,6 +115,11 @@ main =
      prepareBinopButton sr xml "bDiv" (/)
      prepareUnopButton sr xml "bReciprocal" (1/)
 
+-- Clear Entry on CE click (do not change the stack)
+     bce <- xmlGetWidget xml castToButton "bCE"
+     onClicked bce $ do
+        setDisplay sr ""
+
 -- Start up the GUI
      
      widgetShowAll mainWindow
