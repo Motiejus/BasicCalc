@@ -454,7 +454,8 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkButton" id="button20">
+              <widget class="GtkButton" id="bSTO">
+                <property name="label" translatable="yes">STO</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -521,7 +522,8 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkButton" id="button25">
+              <widget class="GtkButton" id="bFET">
+                <property name="label" translatable="yes">FET</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>

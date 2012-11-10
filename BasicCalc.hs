@@ -17,10 +17,11 @@ import Data.IORef
 {- This data structure holds the state of the system. -}
 
 data CalcState = CalcState
-  { displayString :: String  -- what's displayed at the top
-  , stack :: [Double]        -- stack of numbers
-  , dispEntry :: Entry       -- the gtk Entry for the display
-  , stackBuf :: TextBuffer   -- the gtk TextBuffer for the stack
+  { displayString :: String,  -- what's displayed at the top
+    stack :: [Double],        -- stack of numbers
+    dispEntry :: Entry,       -- the gtk Entry for the display
+    stackBuf :: TextBuffer,   -- the gtk TextBuffer for the stack
+    sto :: Maybe Double       -- Stored item
   }
 
 {- A single state reference sr :: SR is created, which always points
@@ -37,10 +38,11 @@ used. -}
 
 initState :: CalcState
 initState = CalcState
-  { displayString = ""
-  , stack = []
-  , dispEntry = error "Display entry not set"
-  , stackBuf = error "Stack text buffer not set"
+  { displayString = "",
+    stack = [],
+    dispEntry = error "Display entry not set",
+    stackBuf = error "Stack text buffer not set",
+    sto = Nothing
   }
 
 {- The main program initialises the widgets and then starts the
@@ -132,6 +134,7 @@ main =
        setStack sr []
 
 -- +/- button, change sign of the number on top of the stack
+
      bChangeSign <- xmlGetWidget xml castToButton "bChangeSign"
      onClicked bChangeSign $ do
        s <- readIORef sr
@@ -140,10 +143,40 @@ main =
          [] -> return [])
        setStack sr s'
 
+-- STO button, store value on top of the stack
+
+     bSTO <- xmlGetWidget xml castToButton "bSTO"
+     onClicked bSTO $ do
+       setSto sr
+
+-- FET button, fetch the value from STO to top of the stack
+     bFET <- xmlGetWidget xml castToButton "bFET"
+     onClicked bFET $ do
+       fet sr
+
 -- Start up the GUI
-     
+
      widgetShowAll mainWindow
      mainGUI
+
+setSto :: SR -> IO ()
+setSto sr = do
+  s <- readIORef sr
+  d <- (case stack s of
+    [] -> return Nothing
+    (x:_) -> return (Just x))
+  putStrLn ("STO: " ++ (show d))
+  writeIORef sr (s {sto = d})
+
+fet :: SR -> IO ()
+fet sr = do
+  state <- readIORef sr
+  case sto state of
+    Nothing ->
+      putStrLn ("Nothing stored, stack not touched")
+    Just d ->
+      setStack sr (d:(stack state))
+
 
 {- Set the stack to xs.  The new stack is shown in the text view on
 the GUI, and is also printed to the console. -}
