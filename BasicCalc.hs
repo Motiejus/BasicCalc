@@ -114,6 +114,9 @@ main =
      prepareBinopButton sr xml "bMul" (*)
      prepareBinopButton sr xml "bDiv" (/)
      prepareUnopButton sr xml "bReciprocal" (1/)
+     prepareUnopButton sr xml "bSqrt" (sqrt)
+     prepareUnopButton sr xml "bSin" (sin)
+     prepareUnopButton sr xml "bCos" (cos)
 
 -- Clear Entry on CE click (do not change the stack)
 

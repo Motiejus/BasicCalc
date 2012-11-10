@@ -1,9 +1,10 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <glade-interface>
   <!-- interface-requires gtk+ 2.16 -->
   <!-- interface-naming-policy toplevel-contextual -->
   <widget class="GtkWindow" id="MainWindow">
     <property name="visible">True</property>
+    <property name="can_focus">False</property>
     <property name="title" translatable="yes">Calculator</property>
     <property name="window_position">center</property>
     <property name="default_width">700</property>
@@ -11,71 +12,81 @@
     <child>
       <widget class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
-        <property name="orientation">vertical</property>
+        <property name="can_focus">False</property>
         <property name="spacing">4</property>
         <child>
           <widget class="GtkMenuBar" id="menubar1">
             <property name="visible">True</property>
+            <property name="can_focus">False</property>
             <child>
               <widget class="GtkMenuItem" id="menuitem1">
                 <property name="visible">True</property>
+                <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_File</property>
                 <property name="use_underline">True</property>
                 <child>
                   <widget class="GtkMenu" id="menuitem1_menu">
+                    <property name="can_focus">False</property>
                     <child>
                       <widget class="GtkImageMenuItem" id="menuNew">
                         <property name="label">gtk-new</property>
                         <property name="visible">True</property>
+                        <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="activate" handler="on_new1_activate"/>
+                        <signal name="activate" handler="on_new1_activate" swapped="no"/>
                       </widget>
                     </child>
                     <child>
                       <widget class="GtkImageMenuItem" id="menuOpen">
                         <property name="label">gtk-open</property>
                         <property name="visible">True</property>
+                        <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="activate" handler="on_open1_activate"/>
+                        <signal name="activate" handler="on_open1_activate" swapped="no"/>
                       </widget>
                     </child>
                     <child>
                       <widget class="GtkSeparatorMenuItem" id="separatormenuitem2">
                         <property name="visible">True</property>
+                        <property name="can_focus">False</property>
                       </widget>
                     </child>
                     <child>
                       <widget class="GtkImageMenuItem" id="menuSaveAs">
                         <property name="label">gtk-save-as</property>
                         <property name="visible">True</property>
+                        <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="activate" handler="on_save_as1_activate"/>
+                        <signal name="activate" handler="on_save_as1_activate" swapped="no"/>
                       </widget>
                     </child>
                     <child>
                       <widget class="GtkImageMenuItem" id="menuSave">
                         <property name="label">gtk-save</property>
                         <property name="visible">True</property>
+                        <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="activate" handler="on_save1_activate"/>
+                        <signal name="activate" handler="on_save1_activate" swapped="no"/>
                       </widget>
                     </child>
                     <child>
                       <widget class="GtkSeparatorMenuItem" id="separatormenuitem1">
                         <property name="visible">True</property>
+                        <property name="can_focus">False</property>
                       </widget>
                     </child>
                     <child>
                       <widget class="GtkImageMenuItem" id="menuQuit">
                         <property name="label">gtk-quit</property>
                         <property name="visible">True</property>
+                        <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="activate" handler="on_quit1_activate"/>
+                        <signal name="activate" handler="on_quit1_activate" swapped="no"/>
                       </widget>
                     </child>
                   </widget>
@@ -85,35 +96,40 @@
             <child>
               <widget class="GtkMenuItem" id="menuitem2">
                 <property name="visible">True</property>
+                <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_Edit</property>
                 <property name="use_underline">True</property>
                 <child>
                   <widget class="GtkMenu" id="menuitem2_menu">
+                    <property name="can_focus">False</property>
                     <child>
                       <widget class="GtkImageMenuItem" id="menuCut">
                         <property name="label">gtk-cut</property>
                         <property name="visible">True</property>
+                        <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="activate" handler="on_cut1_activate"/>
+                        <signal name="activate" handler="on_cut1_activate" swapped="no"/>
                       </widget>
                     </child>
                     <child>
                       <widget class="GtkImageMenuItem" id="menuCopy">
                         <property name="label">gtk-copy</property>
                         <property name="visible">True</property>
+                        <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="activate" handler="on_copy1_activate"/>
+                        <signal name="activate" handler="on_copy1_activate" swapped="no"/>
                       </widget>
                     </child>
                     <child>
                       <widget class="GtkImageMenuItem" id="menuPaste">
                         <property name="label">gtk-paste</property>
                         <property name="visible">True</property>
+                        <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="activate" handler="on_paste1_activate"/>
+                        <signal name="activate" handler="on_paste1_activate" swapped="no"/>
                       </widget>
                     </child>
                   </widget>
@@ -123,6 +139,7 @@
             <child>
               <widget class="GtkMenuItem" id="menuitem3">
                 <property name="visible">True</property>
+                <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_View</property>
                 <property name="use_underline">True</property>
               </widget>
@@ -130,26 +147,30 @@
             <child>
               <widget class="GtkMenuItem" id="menuitem4">
                 <property name="visible">True</property>
+                <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_Help</property>
                 <property name="use_underline">True</property>
                 <child>
                   <widget class="GtkMenu" id="menuitem4_menu">
+                    <property name="can_focus">False</property>
                     <child>
                       <widget class="GtkImageMenuItem" id="menuHelp">
                         <property name="label">gtk-help</property>
                         <property name="visible">True</property>
+                        <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="activate" handler="on_help1_activate"/>
+                        <signal name="activate" handler="on_help1_activate" swapped="no"/>
                       </widget>
                     </child>
                     <child>
                       <widget class="GtkImageMenuItem" id="menuAbout">
                         <property name="label">gtk-about</property>
                         <property name="visible">True</property>
+                        <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <signal name="activate" handler="on_about1_activate"/>
+                        <signal name="activate" handler="on_about1_activate" swapped="no"/>
                       </widget>
                     </child>
                   </widget>
@@ -167,16 +188,22 @@
           <widget class="GtkEntry" id="DisplayEntry">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
-            <property name="invisible_char">&#x25CF;</property>
+            <property name="invisible_char">●</property>
+            <property name="primary_icon_activatable">False</property>
+            <property name="secondary_icon_activatable">False</property>
+            <property name="primary_icon_sensitive">True</property>
+            <property name="secondary_icon_sensitive">True</property>
           </widget>
           <packing>
             <property name="expand">False</property>
+            <property name="fill">True</property>
             <property name="position">1</property>
           </packing>
         </child>
         <child>
           <widget class="GtkTable" id="table1">
             <property name="visible">True</property>
+            <property name="can_focus">False</property>
             <property name="n_rows">6</property>
             <property name="n_columns">5</property>
             <property name="homogeneous">True</property>
@@ -225,7 +252,8 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkButton" id="button5">
+              <widget class="GtkButton" id="bSqrt">
+                <property name="label" translatable="yes">Sqrt</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -290,7 +318,8 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkButton" id="button10">
+              <widget class="GtkButton" id="bSin">
+                <property name="label" translatable="yes">Sin</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -357,7 +386,8 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkButton" id="button15">
+              <widget class="GtkButton" id="bCos">
+                <property name="label" translatable="yes">Cos</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -568,6 +598,8 @@
             </child>
           </widget>
           <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
             <property name="position">2</property>
           </packing>
         </child>
@@ -585,6 +617,8 @@
             </child>
           </widget>
           <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
             <property name="position">3</property>
           </packing>
         </child>
