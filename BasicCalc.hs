@@ -116,9 +116,18 @@ main =
      prepareUnopButton sr xml "bReciprocal" (1/)
 
 -- Clear Entry on CE click (do not change the stack)
+
      bce <- xmlGetWidget xml castToButton "bCE"
      onClicked bce $ do
         setDisplay sr ""
+
+-- CLR clear button
+
+     bclr <- xmlGetWidget xml castToButton "bCLR"
+     onClicked bclr $ do
+        setDisplay sr ""
+        setStack sr []
+        --writeIORef sr (s { stack = []})
 
 -- Start up the GUI
      
