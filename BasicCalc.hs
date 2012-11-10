@@ -150,9 +150,20 @@ main =
        setSto sr
 
 -- FET button, fetch the value from STO to top of the stack
+
      bFET <- xmlGetWidget xml castToButton "bFET"
      onClicked bFET $ do
        fet sr
+
+-- EXCH button, to exchange top 2 elements of the stack
+
+     bEXCH <- xmlGetWidget xml castToButton "bEXCH"
+     onClicked bEXCH $ do
+       s <- readIORef sr
+       st' <- (case stack s of
+            (x:y:xs) -> return (y:x:xs)
+            xs -> return xs)
+       setStack sr st'
 
 -- Start up the GUI
 

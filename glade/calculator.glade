@@ -586,7 +586,8 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkButton" id="button30">
+              <widget class="GtkButton" id="bEXCH">
+                <property name="label" translatable="yes">EXCH</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
